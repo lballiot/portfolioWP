@@ -1,0 +1,358 @@
+:root {
+	--red-color: #bb0a21;
+	--blue-color: #2699cf;
+	--dark-color: rgb(37, 38, 39);
+	--grey-color: #eaebeb;
+	--light-color: #f4f5f5;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	font-size: 62.5%;
+	line-height: 1.6rem;
+}
+img {
+	max-width: 100%;
+}
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 1.6rem;
+	color: var(--dark-color);
+	background-color: var(--light-color);
+	overflow-y: none;
+}
+
+h1 {
+	font-size: 4rem;
+	font-weight: 300;
+}
+
+h2 {
+	font-size: 5.6rem;
+	text-transform: uppercase;
+	color: rgba(37, 38, 39, 0.2);
+}
+
+h3 {
+	font-size: 5rem;
+	color: var(--red-color);
+}
+h4 {
+	font-size: 2.5rem;
+}
+p {
+	font-size: 1.9rem;
+	line-height: 3.5rem;
+}
+
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: var(--dark-color);
+}
+
+/* --------------- CLASSES GÉNÉRIQUES --------------- */
+
+.separator {
+	height: 1px;
+	width: 50%;
+	background-color: var(--blue-color);
+	margin: 1rem;
+}
+
+.filter {
+	filter: blur(5px);
+}
+
+.visible {
+	opacity: 1;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+strong {
+	color: var(--red-color);
+	font-size: 2.5rem;
+	font-weight: normal;
+}
+
+button {
+	color: var(--blue-color);
+	border: 1px solid var(--blue-color);
+	background-color: var(--light-color);
+	border-radius: 8px;
+	padding: 0.7rem;
+}
+
+button:hover {
+	background-color: var(--blue-color);
+	opacity: 0.6;
+	color: var(--light-color);
+	transition: all 0.3s linear;
+}
+
+/* --------------- ANIMATION --------------- */
+
+@keyframes rotation {
+	from {
+		transform: rotate(30deg);
+	}
+	to {
+		transform: rotate(210deg);
+	}
+}
+@keyframes rotation2 {
+	from {
+		transform: rotate(60deg);
+	}
+	to {
+		transform: rotate(240deg);
+	}
+}
+
+/* --------------- SUPERIMPOSED TITLE --------------- */
+
+.title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 5rem 0 7rem 0;
+}
+.title > h2,
+.title > h3 {
+	font-weight: 300;
+}
+
+.title > h3 {
+	position: absolute;
+	padding: 2rem;
+}
+
+/* --------------- MENU --------------- */
+
+.menu ul {
+	display: flex;
+	flex-flow: row nowrap;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 2rem 3rem;
+}
+.menu ul li {
+	margin: 2rem;
+}
+.menu ul li a {
+	font-size: 2rem;
+}
+
+/* --------------- HEADER --------------- */
+
+header {
+	display: flex;
+	position: relative;
+	flex: 1;
+	flex-direction: row;
+	background-color: var(--dark-color);
+	min-height: 100vh;
+	min-width: 50vw;
+	justify-content: center;
+	align-items: center;
+	color: var(--light-color);
+}
+/* Bloc with square rotation */
+.profile-bloc {
+	background-color: #3b3d3f;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	height: 400px;
+}
+
+.bloc-rotation1,
+.bloc-rotation2 {
+	position: absolute;
+	width: 400px;
+	height: 400px;
+}
+.bloc-rotation1 {
+	transform: rotate(30deg);
+	background-color: var(--red-color);
+	/* animation: rotation 3s linear; */
+}
+.bloc-rotation2 {
+	transform: rotate(60deg);
+	background-color: var(--blue-color);
+	/* animation: rotation2 3s linear; */
+}
+
+/* Classe animation for js */
+.rotation1 {
+	animation: rotation 3s linear;
+}
+.rotation2 {
+	animation: rotation2 3s linear;
+}
+
+.profile-bloc img {
+	border-radius: 50%;
+	width: 40%;
+	height: auto;
+	align-items: center;
+	margin: 1rem;
+}
+.profile-bloc p {
+	padding: 3rem;
+	font-size: 2.4rem;
+}
+.profile-bloc > .separator {
+	background-color: var(--red-color);
+}
+
+/* --------------- PRÉSENTATION --------------- */
+#profile-presentation {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin: 5rem 7rem;
+}
+
+.profile-presentation-stage {
+	margin: 5rem 0;
+	font-weight: bold;
+}
+
+/* --------------- CARROUSEL RÉALISATIONS --------------- */
+#realisations {
+	padding: 5rem;
+	background-color: var(--grey-color);
+}
+.realisations-projet,
+.competence-list {
+	display: flex;
+	justify-content: space-between;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+	margin: 10rem 2rem;
+}
+
+.realisations-projet li,
+.competence-list li {
+	flex: 1 0 30%;
+	scroll-snap-align: start;
+}
+
+#realisations article {
+	background-color: var(--light-color);
+	border-radius: 8px;
+	min-height: 30rem;
+	padding: 2rem;
+	margin: 1.5rem;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+}
+
+#realisations article img {
+	width: 100%;
+	height: auto;
+}
+
+#realisations article h4,
+#realisations article p {
+	position: absolute;
+}
+.placement-title {
+	top: 50px;
+	text-align: right;
+}
+.placement-p {
+	top: 100px;
+	padding: 1.5rem;
+	text-align: center;
+	font-size: 1.5rem;
+	line-height: 1.5rem;
+}
+
+/* --------------- CARROUSEL COMPÉTENCES --------------- */
+
+#competences {
+	padding: 5rem;
+}
+.competence-list li {
+	background-color: var(--grey-color);
+	border-radius: 8px;
+	padding: 5rem 2rem;
+	margin: 1.5rem;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.competence-list li h4 {
+	color: var(--blue-color);
+	font-weight: 300;
+}
+
+.competence-icon {
+	margin: 4rem 0;
+}
+
+/* --------------- CONTACT --------------- */
+
+#contact {
+	padding: 5rem;
+	background-color: var(--grey-color);
+}
+
+.contact-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10rem 2rem;
+}
+
+.contact-icon svg {
+	margin: 4rem;
+}
+
+/* --------------- FOOTER --------------- */
+
+footer {
+	background-color: var(--dark-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+}
+
+footer p {
+	color: var(--light-color);
+}
+
+.copyright {
+	padding-left: 5px;
+}
+
+.pdg {
+	padding-top: 3px;
+}

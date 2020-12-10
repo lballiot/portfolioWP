@@ -1,0 +1,265 @@
+:root {
+	--red-color: #bb0a21;
+	--blue-color: #2699cf;
+	--dark-color: rgb(37, 38, 39);
+	--grey-color: #eaebeb;
+	--light-color: #f4f5f5;
+}
+
+/* Pour les écrans inférieurs ou égal à 900px  */
+
+@media screen and (max-width: 900px) {
+	h1 {
+		font-size: 3rem;
+		margin: 0.5rem auto 1.3rem;
+	}
+	h2 {
+		font-size: 4rem;
+		text-transform: uppercase;
+		color: rgba(37, 38, 39, 0.2);
+	}
+	h3 {
+		font-size: 4rem;
+		color: var(--red-color);
+	}
+	p {
+		font-size: 1.6rem;
+		line-height: 2.5rem;
+	}
+	.container {
+		flex-direction: column;
+	}
+	strong {
+		font-size: 2.3rem;
+	}
+
+	/* --------------- HEADER PROFILE --------------- */
+
+	header {
+		min-height: 50vh;
+	}
+	.profile-bloc p {
+		font-size: 1.6rem;
+		padding: 1rem 1.5rem 1.5rem;
+	}
+	.profile-bloc > .separator {
+		margin: 0.5rem;
+	}
+
+	#profile-presentation {
+		margin: 3rem;
+	}
+
+	/* --------------- MENU --------------- */
+
+	/* Bug IOS
+	/* => L'overflow doit être appliqué sur l'élément body ET html
+	/* pour faire disparaître le scroll sur safari IOS
+	*/
+	.noscroll,
+	.noscroll body {
+		overflow: hidden;
+	}
+
+	/* Menu dans son état initial mais fermé */
+	.menu {
+		visibility: hidden;
+		transform: translateX(100vw);
+		position: fixed;
+		background-color: var(--dark-color);
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		transition: all 0.3s ease-in-out;
+	}
+
+	/* Menu dans son état initial mais ouvert */
+	.menu.open {
+		visibility: visible;
+		transform: translateX(0);
+	}
+
+	.menu.open li {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	.menu.open li:nth-child(n + 1) {
+		transition-delay: 0.3s;
+	}
+	.menu.open li:nth-child(n + 2) {
+		transition-delay: 0.4s;
+	}
+	.menu.open li:nth-child(n + 3) {
+		transition-delay: 0.5s;
+	}
+	.menu.open li:nth-child(n + 4) {
+		transition-delay: 0.6s;
+	}
+	.menu.open li:nth-child(n + 5) {
+		transition-delay: 0.7s;
+	}
+	.menu ul {
+		flex-direction: column;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		width: 100vw;
+		font-size: 2.1rem;
+		margin: 0;
+	}
+	.menu ul li {
+		margin-bottom: 30px;
+		transform: translateX(30px);
+		opacity: 0;
+		transition: all 0.4s ease;
+	}
+	.menu.open ul li a {
+		color: var(--light-color);
+		font-size: 2.5rem;
+	}
+
+	/* --------------- MENU BURGER --------------- */
+	.nav-toggle {
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.nav-toggle-bar,
+	.nav-toggle-bar::before,
+	.nav-toggle-bar::after {
+		content: "";
+		background-color: var(--light-color);
+		width: 100%;
+		height: 2px;
+		border-radius: 4px;
+		position: absolute;
+		transition: all 0.4s ease-in-out;
+	}
+	.nav-toggle-bar::before {
+		top: -10px;
+	}
+
+	.nav-toggle-bar::after {
+		top: 10px;
+	}
+
+	/* Transitions Icone de menu */
+	.nav-toggle.active .nav-toggle-bar {
+		transform: rotate(135deg);
+	}
+	.nav-toggle.active .nav-toggle-bar:before,
+	.nav-toggle.active .nav-toggle-bar:after {
+		top: 0;
+		transform: rotate(90deg);
+	}
+
+	/* --------------- CARROUSEL --------------- */
+
+	#realisations,
+	#competences {
+		padding: 5rem 2rem;
+	}
+	#realisations article {
+		min-height: 16rem;
+	}
+
+	.realisations-projet li,
+	.competence-list li {
+		flex: 1 0 90%;
+	}
+
+	.competence-list li {
+		padding: 2rem 1rem;
+	}
+	.competence-icon {
+		margin: 2rem 0;
+	}
+
+	.realisations-projet,
+	.competence-list,
+	.contact-icon {
+		margin: 5rem 2rem;
+	}
+
+	.contact-icon svg {
+		margin: 2rem;
+	}
+
+	/* --------------- SCROLL BAR --------------- */
+
+	::-webkit-scrollbar-track {
+		background-color: var(--light-color);
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar {
+		border-radius: 4px;
+		height: 6px;
+		background-color: var(--light-color);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: var(--dark-color);
+		border-radius: 4px;
+	}
+}
+
+/* Pour les écrans supérieurs ou égal à 901px  */
+
+@media screen and (min-width: 901px) {
+	/* --------------- HEADER PROFILE --------------- */
+	.header-page {
+		display: flex;
+	}
+	#profile-presentation > a {
+		margin-right: auto;
+	}
+}
+
+/* Adaptation square présentation responsive */
+
+@media screen and (max-width: 600px) {
+	.profile-bloc {
+		width: 250px;
+		height: 250px;
+	}
+	.bloc-rotation1,
+	.bloc-rotation2 {
+		width: 250px;
+		height: 250px;
+	}
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+	.profile-bloc {
+		width: 300px;
+		height: 300px;
+	}
+	.bloc-rotation1,
+	.bloc-rotation2 {
+		width: 300px;
+		height: 300px;
+	}
+}
+@media screen and (min-width: 901px) and (max-width: 1100px) {
+	.profile-bloc {
+		width: 320px;
+		height: 320px;
+	}
+	.bloc-rotation1,
+	.bloc-rotation2 {
+		width: 320px;
+		height: 320px;
+	}
+}
