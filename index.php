@@ -7,14 +7,26 @@
 		<div class="bloc-rotation2"></div>
 		<div class="profile-bloc">
 			<?php 
-				if(has_custom_logo()) :
-				$logo = wp_get_attachment_image_src( get_theme_mod('custom_logo') );
+			$arg = array(
+				'post_type' => 'presentation',
+				'order' => 'DESC'
+			);
+			$query = new WP_Query($arg);
+
+			if($query->have_posts()) :
+			while ($query->have_posts()) : $query->the_post(); 
+			if(get_the_title() === "Lydie BALLIOT") :
+			if (has_post_thumbnail()) :
 			?>
-			<img src="<?php echo $logo[0] ?>" alt="image profile" />
-			<?php endif;?>
-			<h1>Lydie BALLIOT</h1>
+			<img src="<?php the_post_thumbnail_url(); ?>" alt="image profile" />
+			<?php endif; ?>
+			<h1><?php the_title(); ?></h1>
+			<?php endif; ?>
+			<?php endwhile; ?>
+			<?php endif; ?>
+
 			<div class="separator"></div>
-			<p>Développeur web junior</p>
+			<p><?php the_field('metier'); ?></p>
 		</div>
 	</header>
 	<!-- PROFILE PRESENTATION -->
@@ -30,24 +42,26 @@
 			<h2>Présentation</h2>
 			<h3>À propos</h3>
 		</div>
+
+		<?php 
+			$query = new WP_Query($arg);
+		
+			if($query->have_posts()) :
+			while ($query->have_posts()) : $query->the_post(); 
+			if(get_the_title() === "Lydie BALLIOT") :
+		?>
 		<p>
-			Je m’appelle <strong>Lydie</strong>, je suis stagiaire de la
-			formation “Développeur web et web mobile” à Numerica.
-			<br />J’ai effectué un court parcours à l’école
-			42. Passionnée par la conception graphique des interfaces et
-			le développement web, je suis venu dans cette formation pour
-			me spécialiser dans le
-			<strong>développement front-end</strong>, avec l’intégration
-			du <strong>design</strong>.
+			<?php echo get_the_content(); ?>
 		</p>
 		<p class="profile-presentation-stage">
-			Je suis à la recherche d’un
-			<strong class="profile-presentation-stage">stage</strong> en
-			tant que développeur web et web mobile pour mars 2021.
+			<?php echo get_the_excerpt( ); ?>
 		</p>
-		<a href="<?php bloginfo('wpurl'); ?>/dist/cv/cv-Lydie-BALLIOT.pdf" target="_blank">
+		<a href="<?php the_field('cv'); ?>" target="_blank">
 			<button>Visualiser le CV pdf</button>
 		</a>
+		<?php endif ?>
+		<?php endwhile; ?>
+		<?php endif; ?>
 	</section>
 </div>
 <!-- PARTI REALISATIONS -->

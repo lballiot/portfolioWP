@@ -17,8 +17,9 @@ $query = new WP_Query($args);
 	<?php while ($query->have_posts()) : $query->the_post(); ?>
 	<li>
 		<article>
-			<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php get_the_post_thumbnail(); ?>">
-
+			<?php if(has_post_thumbnail()) : ?>
+			<img src="<?php the_post_thumbnail_url(); ?>" alt="">
+			<?php endif; ?>
 			<h4 class="placement-title hidden"><?php the_title(); ?></h4>
 			<p class="placement-p hidden"><?php echo get_the_excerpt(); ?></p>
 		</article>
