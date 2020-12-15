@@ -36,10 +36,41 @@ function register_my_menus() {
 	register_nav_menus(
 		array(
 			'header-menu' => __( 'Header Menu' ),
-			'footer-menu' => __( 'Footer Menu' )
-			)
+		)
 		);
 	}
 add_action( 'init', 'register_my_menus' );
+
+/**
+* permet d'enregistre un type de publication.
+* @link https://developer.wordpress.org/reference/functions/register_post_type/
+*/
+
+register_post_type('competence',
+array(
+	'label' => 'Compétence',
+	'labels' => array(
+		'name' => 'Compétences',
+		'singular_name' => 'Compétence',
+		'all_items' => 'Tous les compétences',
+		'add_new_item' => 'Ajouter un compétence',
+		'edit_item' => 'Éditer le compétence',
+		'new_item' => 'Nouveau compétence',
+		'view_item' => 'Voir le compétence',
+		'search_items' => 'Rechercher parmi les compétences',
+		'not_found' => 'Pas de compétence trouvé',
+		'not_found_in_trash'=> 'Pas de compétence dans la corbeille'
+		),
+	'public' => true,
+	'capability_type' => 'post',
+	'supports' => array(
+	'title',
+	'editor',
+	'thumbnail'
+	),
+	'menu_icon' => 'dashicons-welcome-learn-more',
+	'has_archive' => true
+	)
+);
 
 ?>

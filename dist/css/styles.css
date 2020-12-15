@@ -297,10 +297,14 @@ header {
 #competences {
 	padding: 5rem;
 }
+.competence-list img {
+	width: 60px;
+	margin: 2rem;
+}
 .competence-list li {
 	background-color: var(--grey-color);
 	border-radius: 8px;
-	padding: 5rem 2rem;
+	padding: 5rem 2rem 3rem 2rem;
 	margin: 1.5rem;
 	height: auto;
 	display: flex;
@@ -315,6 +319,9 @@ header {
 
 .competence-icon {
 	margin: 4rem 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
 }
 
 /* --------------- CONTACT --------------- */
