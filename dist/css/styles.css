@@ -142,7 +142,7 @@ button:hover {
 
 /* --------------- MENU --------------- */
 
-.menu ul {
+.navigation-menu ul {
 	display: flex;
 	flex-flow: row nowrap;
 	position: absolute;
@@ -150,10 +150,10 @@ button:hover {
 	right: 0;
 	margin: 2rem 3rem;
 }
-.menu ul li {
+.navigation-menu ul li {
 	margin: 2rem;
 }
-.menu ul li a {
+.navigation-menu ul li a {
 	font-size: 2rem;
 }
 

@@ -2,7 +2,7 @@
 // -------------------- MENU -------------------- \\
 // *********************************************** \\
 let toggle = document.querySelector(".nav-toggle");
-let nav = document.querySelector(".menu");
+let nav = document.querySelector(".navigation-menu");
 let page = document.documentElement;
 
 // La fonction permettant de basculer l'affichage en ajoutant/supprimant des classes
@@ -33,28 +33,29 @@ elCopyright.textContent = `${year} Tous droits réservés | Lydie BALLIOT`;
 // --- ROTATION AND HOVER ON BLOC PRESENTATION --- \\
 // ************************************************ \\
 let elPresentation = document.querySelector(".profile-bloc");
-let rotation1 = document.querySelector(".bloc-rotation1");
-let rotation2 = document.querySelector(".bloc-rotation2");
+if (elPresentation) {
+	let rotation1 = document.querySelector(".bloc-rotation1");
+	let rotation2 = document.querySelector(".bloc-rotation2");
 
-//La fonction permettant d'enlever la classe rotation
-function removeClassRotation() {
-	rotation1.classList.remove("rotation1");
-	rotation2.classList.remove("rotation2");
+	//La fonction permettant d'enlever la classe rotation
+	function removeClassRotation() {
+		rotation1.classList.remove("rotation1");
+		rotation2.classList.remove("rotation2");
+	}
+	// La fonction permettant de faire tourner les blocs de la présentation en ajoutant / supprimant des classes
+	function addRotation() {
+		rotation1.classList.add("rotation1");
+		rotation2.classList.add("rotation2");
+
+		setTimeout(function () {
+			removeClassRotation();
+		}, 3100);
+	}
+
+	elPresentation.addEventListener("mouseover", addRotation);
+	// --- Animation when page is loaded --- \\
+	window.addEventListener("load", addRotation);
 }
-// La fonction permettant de faire tourner les blocs de la présentation en ajoutant / supprimant des classes
-function addRotation() {
-	rotation1.classList.add("rotation1");
-	rotation2.classList.add("rotation2");
-
-	setTimeout(function () {
-		removeClassRotation();
-	}, 3100);
-}
-
-elPresentation.addEventListener("mouseover", addRotation);
-
-// --- Animation when page is loaded --- \\
-window.addEventListener("load", addRotation);
 
 // ********************************************* \\
 // ---------------- HOVER PROJET ---------------- \\

@@ -36,7 +36,6 @@
 			<div class="competence-icon">
 
 				<?php if ($query->have_posts()) : ?>
-
 				<?php while ($query->have_posts()) : $query->the_post(); ?>
 				<?php 
 					$myterm = get_the_terms(get_the_ID( ), 'categorie_dev');

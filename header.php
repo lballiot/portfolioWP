@@ -13,3 +13,10 @@
 	<body <?php body_class(); ?>>
 
 		<?php wp_body_open(); ?>
+
+		<div class="nav-toggle">
+			<div class="nav-toggle-bar"></div>
+		</div>
+		<nav class="navigation-menu">
+			<?php wp_nav_menu( 'header-menu' ) ?>
+		</nav>

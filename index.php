@@ -31,18 +31,10 @@
 	</header>
 	<!-- PROFILE PRESENTATION -->
 	<section id="profile-presentation">
-		<div class="nav-toggle">
-			<div class="nav-toggle-bar"></div>
-		</div>
-
-		<nav class="menu">
-			<?php wp_nav_menu( 'header-menu' ) ?>
-		</nav>
 		<div class="title">
 			<h2>Présentation</h2>
 			<h3>À propos</h3>
 		</div>
-
 		<?php 
 			$query = new WP_Query($arg);
 		
