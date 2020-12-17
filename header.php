@@ -13,10 +13,16 @@
 	<body <?php body_class(); ?>>
 
 		<?php wp_body_open(); ?>
-
+		<?php if (is_single()) :?>
+		<a href="<?php bloginfo( "url" ) ?>">
+			<button class="align-btn">Retour</button>
+		</a>
+		<?php else :?>
 		<div class="nav-toggle">
 			<div class="nav-toggle-bar"></div>
 		</div>
+		<?php endif; ?>
+
 		<nav class="navigation-menu">
 			<?php wp_nav_menu( 'header-menu' ) ?>
 		</nav>

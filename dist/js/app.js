@@ -2,21 +2,23 @@
 // -------------------- MENU -------------------- \\
 // *********************************************** \\
 let toggle = document.querySelector(".nav-toggle");
-let nav = document.querySelector(".navigation-menu");
-let page = document.documentElement;
+if (toggle) {
+	let nav = document.querySelector(".navigation-menu");
+	let page = document.documentElement;
 
-// La fonction permettant de basculer l'affichage en ajoutant/supprimant des classes
-function doToggle() {
-	toggle.classList.toggle("active");
-	nav.classList.toggle("open");
-	page.classList.toggle("noscroll");
-}
-toggle.addEventListener("click", doToggle);
+	// La fonction permettant de basculer l'affichage en ajoutant/supprimant des classes
+	function doToggle() {
+		toggle.classList.toggle("active");
+		nav.classList.toggle("open");
+		page.classList.toggle("noscroll");
+	}
+	toggle.addEventListener("click", doToggle);
 
-if (nav) {
-	let linkMenu = nav.querySelectorAll("a");
-	for (let i = 0; i < linkMenu.length; i++) {
-		linkMenu[i].addEventListener("click", doToggle);
+	if (nav) {
+		let linkMenu = nav.querySelectorAll("a");
+		for (let i = 0; i < linkMenu.length; i++) {
+			linkMenu[i].addEventListener("click", doToggle);
+		}
 	}
 }
 

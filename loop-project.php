@@ -16,13 +16,15 @@ $query = new WP_Query($args);
 	<?php if ($query->have_posts()) : ?>
 	<?php while ($query->have_posts()) : $query->the_post(); ?>
 	<li>
-		<article>
-			<?php if(has_post_thumbnail()) : ?>
-			<img src="<?php the_post_thumbnail_url(); ?>" alt="">
-			<?php endif; ?>
-			<h4 class="placement-title hidden"><?php the_title(); ?></h4>
-			<p class="placement-p hidden"><?php echo get_the_excerpt(); ?></p>
-		</article>
+		<a href="<?php the_permalink(); ?>">
+			<article>
+				<?php if(has_post_thumbnail()) : ?>
+				<img src="<?php the_post_thumbnail_url(); ?>" alt="">
+				<?php endif; ?>
+				<h4 class="placement-title hidden"><?php the_title(); ?></h4>
+				<p class="placement-p hidden"><?php echo get_the_excerpt(); ?></p>
+			</article>
+		</a>
 	</li>
 	<?php endwhile; ?>
 	<?php else : ?>

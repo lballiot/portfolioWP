@@ -28,6 +28,11 @@ body {
 	color: var(--dark-color);
 	background-color: var(--light-color);
 	overflow-y: none;
+	/* display: grid;
+	grid:
+		"header" auto
+		".single-projet" 1fr
+		"footer" auto; */
 }
 
 h1 {
@@ -47,6 +52,12 @@ h3 {
 }
 h4 {
 	font-size: 2.5rem;
+}
+h5 {
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	font-weight: lighter;
+	color: #aaa;
 }
 p {
 	font-size: 1.9rem;
@@ -322,6 +333,13 @@ header {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-around;
+	flex: 1;
+	justify-self: center;
+}
+
+.align {
+	justify-self: flex-start;
+	flex-basis: auto;
 }
 
 /* --------------- CONTACT --------------- */
@@ -362,4 +380,51 @@ footer p {
 
 .pdg {
 	padding-top: 3px;
+}
+
+/* --------------- SINGLE PROJET --------------- */
+.single-projet {
+	margin-top: 5rem;
+	/* min-height: 80vh; */
+	/* display: flex; */
+	/* flex-direction: column; */
+}
+.single-projet-img {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.single-projet-description {
+	display: flex;
+	flex-direction: row;
+	margin: 5rem;
+}
+.single-projet-text {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	margin-left: 7rem;
+}
+.single-projet-text a {
+	margin: 2rem 0;
+	align-self: flex-end;
+}
+.single-projet-text h5 {
+	margin: 5rem 0 1rem 0;
+}
+.single-projet-tags {
+	display: flex;
+	flex-flow: row wrap;
+	margin-top: 3rem;
+}
+.single-projet-tags button {
+	margin: 2rem 2rem 2rem 0;
+}
+.single-projet-tags button:last-child {
+	margin: 2rem 0;
+}
+
+.single-projet-img img {
+	width: 100%;
 }

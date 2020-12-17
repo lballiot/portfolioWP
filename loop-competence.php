@@ -5,6 +5,7 @@
 	<?php 
 		$args = array(
 			'post_type' => 'competence',
+			'posts_per_page' => '-1',
 		);
 		$query = new WP_Query($args);
 	?>
@@ -31,8 +32,8 @@
 	<ul class="competence-list">
 		<?php for ($i=0; $i < count($tabTerms); $i++) : ?>
 		<li>
-			<h4><?php echo $tabTerms[$i] ?></h4>
-			<div class="separator"></div>
+			<h4 class='align'><?php echo $tabTerms[$i] ?></h4>
+			<div class="separator align"></div>
 			<div class="competence-icon">
 
 				<?php if ($query->have_posts()) : ?>
@@ -51,5 +52,9 @@
 				<?php endif; ?>
 			</div>
 		</li>
-		<?php endfor;?>
+
+		<?php 
+			wp_reset_postdata();
+			endfor;
+		?>
 	</ul>
