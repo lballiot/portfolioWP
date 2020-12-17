@@ -16,9 +16,11 @@
 		</div>
 		<div class="single-projet-text">
 			<!-- bouton lien -->
+			<?php if (get_field('lien_projet')) : ?>
 			<a href="<?php the_field('lien_projet'); ?>" target="_blank">
 				<button>Aller sur le site</button>
 			</a>
+			<?php endif; ?>
 			<!-- explication du projet -->
 			<p>
 				<?php the_content(); ?>

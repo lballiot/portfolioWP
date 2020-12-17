@@ -270,6 +270,9 @@
 			"single-projet" 1fr
 			"footer" auto;
 	}
+	#realisations article {
+		max-width: 60%;
+	}
 }
 
 /* Adaptation square présentation responsive */
